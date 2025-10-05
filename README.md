@@ -11,3 +11,4 @@ The python script can also be used to generate midi files or use soundfonts to e
 
 Users can add their own instruments by creating soundfonts which Techsen can use, thereby creating an infinite library of instruments that artists can create music with. Techsen is optimised to run on lower end hardware, meaning that an instance can easily be deployed on the cloud for easy public usage. 
 Kindly read the HOW TO USE file regarding guidance for usage of the CLI tool or hosting the web UI.
+ENSURE  that port 8000 is open.
