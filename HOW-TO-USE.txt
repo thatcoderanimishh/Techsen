@@ -1,0 +1,17 @@
+To-use:
+
+ENSURE THAT UVICORN IS INSTALLED
+
+
+CLI usage:
+python3 Techsen_CLI.py --raag="raag name"
+or python3 Techsen_CLI.py -r "raag name"
+
+
+UI usage:
+Point your terminal to the project directory.
+Then, run "uvicorn server:app"
+Open the i/p adress and port on your browser of choice(uvicorn provides a handy,clickable link too)
+Select raag, hit Start Generation.
+First few seconds just sing your reference Sa for the model to catch your shruti, once it starts playing notes start singing
+Enjoy :)

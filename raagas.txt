@@ -1,0 +1,8 @@
+bhairav: Sa, komal Re, Ga, Ma, Pa, komal Dha, Ni, Sa
+bhairavi: Sa, komal Re, komal Ga, Ma, Pa, komal Dha, komal Ni, Sa
+bhupali: Sa, Re, Ga, Pa, Dha, Sa
+malkauns: Sa, komal Ga, Ma, komal Dha, komal Ni, Sa
+asavari: Sa, Re, komal Ga, Ma, Pa, komal Dha, komal Ni, Sa
+todi: Sa, komal Re, komal Ga, Tivra Ma, Pa, komal Dha, komal Ni, Sa
+yaman: Sa, Re, Ga, Tivra Ma, Dha, Ni, Sa
+durga: Sa, Re, Ma, Pa, Dha, Sa

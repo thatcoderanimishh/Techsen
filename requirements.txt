@@ -1,0 +1,4 @@
+aubio==0.4.9
+fastapi==0.118.0
+numpy==2.3.3
+sounddevice==0.5.2
