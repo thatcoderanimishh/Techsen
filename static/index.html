@@ -1,0 +1,463 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Techsen - Craft Your Hindustani Melody</title>
+<link href="https://fonts.googleapis.com/css2?family=Dancing+Script:wght@600&family=Actor&display=swap" rel="stylesheet">
+<style>
+:root {
+  --dark-purple: #663A6A;
+  --light-purple: #927295;
+}
+
+body {
+  margin: 0;
+  font-family: 'Actor', sans-serif;
+  background: url("leather-bg.png") center/cover repeat fixed;
+  color: var(--dark-purple);
+  scroll-behavior: smooth;
+}
+
+/* Header */
+header {
+  background: var(--dark-purple);
+  color: white;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 30px;
+  position: sticky;
+  top: 0;
+  z-index: 10;
+}
+
+.logo {
+  display: flex;
+  align-items: center;
+  font-size: 20px;
+  font-weight: 600;
+}
+
+.logo-icon {
+  margin-right: 10px;
+  font-size: 22px;
+}
+
+nav a {
+  margin: 0 15px;
+  color: white;
+  text-decoration: none;
+  font-weight: 500;
+}
+
+nav a:hover {
+  text-decoration: underline;
+}
+
+.profile {
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  overflow: hidden;
+}
+
+.profile img {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+}
+
+/* Page Title */
+.page-title {
+  text-align: center;
+}
+
+.page-title h2 {
+  font-family: 'Dancing Script', cursive;
+  font-size: 96px;
+  font-weight: 400;
+  color: var(--dark-purple);
+  display: inline-block;
+  position: relative;
+  margin-bottom: 50px;
+}
+
+.page-title h2::before,
+.page-title h2::after {
+  content: "";
+  position: absolute;
+  top: 50%;
+  width: 250px;
+  height: 2px;
+  background: var(--light-purple);
+}
+
+.page-title h2::before { left: -260px; }
+.page-title h2::after { right: -260px; }
+
+/* Hero Section */
+.hero {
+  text-align: center;
+  margin: 20px;
+}
+
+.hero h1 {
+  font-family: 'Dancing Script', cursive;
+  font-size: 48px;
+  color: var(--dark-purple);
+  margin-bottom: 10px;
+  margin-top: 10px;
+}
+
+.hero p {
+  color: var(--light-purple);
+  font-size: 16px;
+  margin-bottom: 70px;
+}
+
+/* Recorder Card */
+.recorder-card {
+  background: white;
+  width: 80%;
+  max-width: 700px;
+  margin: 40px auto;
+  border-radius: 16px;
+  padding: 40px 40px;
+  text-align: center;
+  box-shadow: 0 4px 10px rgba(0,0,0,0.15);
+}
+
+/* Mic button */
+.mic-btn {
+  background: var(--dark-purple);
+  border-radius: 50%;
+  width: 90px;
+  height: 90px;
+  background: url("mic-btn.png") no-repeat center center;
+  background-size: 50%;
+  margin: 0 auto 30px;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  cursor: pointer;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.2);
+}
+
+.mic-btn.active {
+  animation: pulse 2s ease-in-out infinite;
+}
+
+@keyframes pulse {
+  0%, 100% { transform: scale(1); }
+  50% { transform: scale(1.15); }
+}
+
+.mic-btn svg {
+  width: 42px;
+  height: 42px;
+  fill: white;
+}
+
+/* Waveform */
+.waveform {
+  display: flex;
+  justify-content: space-around;
+  margin: 20px 0;
+}
+
+.bar {
+  width: 3px;
+  background: var(--dark-purple);
+  border-radius: 2px;
+  animation: bounce 1.2s infinite ease-in-out;
+}
+
+@keyframes bounce {
+  0%, 100% { height: 10px; }
+  50% { height: 40px; }
+}
+
+/* Progress */
+.progress-container {
+  margin: 20px 0;
+  text-align: left;
+}
+
+.progress {
+  background: #ddd;
+  border-radius: 6px;
+  height: 8px;
+  overflow: hidden;
+}
+
+.progress-bar {
+  height: 100%;
+  background: linear-gradient(to right, var(--light-purple), var(--dark-purple));
+  width: 0%;
+}
+
+.progress-text {
+  margin-top: 6px;
+  font-size: 14px;
+  color: #444;
+  display: flex;
+  justify-content: space-between;
+}
+
+/* Raaga Dropdown */
+.raaga-select {
+  margin-top: 20px;
+  text-align: center;
+}
+
+label {
+  font-weight: 600;
+  margin-right: 10px;
+}
+
+select {
+  padding: 8px 12px;
+  border-radius: 6px;
+  border: 1px solid var(--dark-purple);
+  color: var(--dark-purple);
+  background: #f6f3f8;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+select:hover {
+  background: #e8e1eb;
+}
+
+/* Buttons */
+.controls {
+  display: flex;
+  justify-content: center;
+  margin-top: 30px;
+  flex-wrap: wrap;
+}
+
+.btn {
+  border: none;
+  border-radius: 50px;
+  padding: 14px 30px;
+  font-size: 16px;
+  cursor: pointer;
+  margin: 10px;
+  transition: 0.2s;
+}
+
+.btn-primary {
+  background: var(--dark-purple);
+  color: white;
+}
+
+.btn-primary:hover {
+  background: #4a264f;
+}
+
+.btn-outline {
+  background: transparent;
+  border: 1px solid var(--dark-purple);
+  color: var(--dark-purple);
+}
+
+.btn-outline:hover {
+  background: #f0eaf3;
+}
+
+/* About Section */
+.heading {
+  padding-left: 100px;
+  text-align: start;
+}
+
+.heading h2 {
+  font-family: "Dancing Script", cursive;
+  font-size: 44px;
+  margin-bottom: 20px;
+  margin-top: 100px;
+}
+
+.content {
+  display: flex;
+  justify-content: space-evenly;
+  flex-wrap: wrap;
+  max-width: 1200px;
+  margin: 40px auto;
+  padding: 20px;
+}
+
+.card {
+  background: white;
+  border-radius: 12px;
+  box-shadow: 0 4px 8px rgba(0,0,0,0.15);
+  padding: 5px 40px;
+  width: 500px;
+  text-align: center;
+  margin-top: 30px;
+  margin-bottom: 30px;
+}
+
+.card h2 {
+  font-family: 'Dancing Script', cursive;
+  font-size: 28px;
+  margin-bottom: 15px;
+  margin-top:30px;
+  color: var(--dark-purple);
+}
+
+.card p {
+  font-size: 16px;
+  line-height: 1.6;
+  color: var(--light-purple);
+}
+</style>
+</head>
+<body>
+
+<header>
+  <div class="logo">
+    <span class="logo-icon">🎵</span> Techsen
+  </div>
+  <nav>
+    <a href="#top">Use AI</a>
+    <a href="#about">About us</a>
+  </nav>
+  <div class="profile">
+    <img src="https://randomuser.me/api/portraits/women/44.jpg" alt="Profile">
+  </div>
+</header>
+
+<div id="top"></div>
+
+<section class="page-title">
+  <h2>Techsen</h2>
+</section>
+
+<section class="hero">
+  <h1>Craft Your Hindustani Melody</h1>
+  <p>Sing or play an instrument, and let AI weave a classic Hindustani background score.</p>
+</section>
+
+<!-- Recorder Section -->
+<div class="recorder-card" id="recorder">
+  <div class="mic-btn" id="micBtn">
+    <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24">
+      <path d="M12 14a3 3 0 0 0 3-3V5a3 3 0 0 0-6 0v6a3 3 0 0 0 3 3zm5-3a5 5 0 0 1-10 0H5a7 7 0 0 0 14 0h-2z"/>
+      <path d="M19 11v2a7 7 0 0 1-14 0v-2H3v2a9 9 0 0 0 8 8.94V23h2v-1.06A9 9 0 0 0 21 13v-2h-2z"/>
+    </svg>
+  </div>
+
+  <div class="waveform" id="waveform">
+    <div class="bar" style="animation-delay:0s"></div>
+    <div class="bar" style="animation-delay:0.1s"></div>
+    <div class="bar" style="animation-delay:0.2s"></div>
+    <div class="bar" style="animation-delay:0.3s"></div>
+    <div class="bar" style="animation-delay:0.4s"></div>
+    <div class="bar" style="animation-delay:0.5s"></div>
+    <div class="bar" style="animation-delay:0.6s"></div>
+    <div class="bar" style="animation-delay:0.7s"></div>
+  </div>
+
+  <div class="progress-container">
+    <div class="progress">
+      <div class="progress-bar" id="progressBar"></div>
+    </div>
+    <div class="progress-text">
+      <span id="statusText">Idle</span>
+      <span id="progressPercent">0%</span>
+    </div>
+  </div>
+
+  <!-- Raaga Dropdown -->
+  <div class="raaga-select">
+    <label for="raaga">Select Raaga:</label>
+    <select id="raaga">
+      <option value="1">Raaga 1</option>
+      <option value="2">Raaga 2</option>
+      <option value="3">Raaga 3</option>
+      <option value="4">Raaga 4</option>
+      <option value="5">Raaga 5</option>
+    </select>
+  </div>
+
+  <div class="controls">
+    <button class="btn btn-primary" id="startBtn">▶ Start Generation</button>
+    <button class="btn btn-outline" id="stopBtn">Stop</button>
+  </div>
+</div>
+
+<section class="heading" id="about">
+  <h2>About us</h2>
+</section>
+
+<section class="content">
+  <div class="card">
+    <h2>Problem Statement</h2>
+    <p>
+      Many aspiring Hindustani vocalists and instrumentalists lack access to trained accompanists or background musicians. 
+      Practicing without a proper melodic and rhythmic context often limits growth, creativity, and confidence. 
+    </p>
+  </div>
+
+  <div class="card">
+    <h2>Solution</h2>
+    <p>
+      Techsen provides an AI-powered accompaniment tool that generates classical Hindustani background scores live while you sing or play. 
+      With just a mic and our platform, artists can practice with professional-quality support anytime, anywhere. 
+    </p>
+  </div>
+</section>
+
+<script>
+const API_BASE = "http://127.0.0.1:8000";
+
+async function loadRaagas() {
+    try {
+        const res = await fetch(`${API_BASE}/get_raagas`);
+        const data = await res.json();
+        const raagaSelect = document.getElementById("raaga");
+        raagaSelect.innerHTML = "";
+        data.raagas.forEach(r => {
+            const opt = document.createElement("option");
+            opt.value = r;
+            opt.textContent = r.charAt(0).toUpperCase() + r.slice(1);
+            raagaSelect.appendChild(opt);
+        });
+        document.getElementById("statusText").textContent = "Raagas loaded";
+    } catch {
+        document.getElementById("statusText").textContent = "Failed to load raagas";
+    }
+}
+
+document.getElementById("startBtn").addEventListener("click", async () => {
+    const raaga = document.getElementById("raaga").value;
+    const statusText = document.getElementById("statusText");
+    statusText.textContent = `Starting CLI for Raaga ${raaga}...`;
+    try {
+        const res = await fetch(`${API_BASE}/start_cli?raag=${raaga}`);
+        const data = await res.json();
+        statusText.textContent = data.message;
+    } catch {
+        statusText.textContent = "Failed to start CLI";
+    }
+});
+
+document.getElementById("stopBtn").addEventListener("click", async () => {
+    const statusText = document.getElementById("statusText");
+    try {
+        const res = await fetch(`${API_BASE}/stop_cli`);
+        const data = await res.json();
+        statusText.textContent = data.message;
+    } catch {
+        statusText.textContent = "Failed to stop CLI";
+    }
+});
+
+window.onload = loadRaagas;
+</script>
+</body>
+</html>
+
